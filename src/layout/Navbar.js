@@ -20,7 +20,12 @@ export default function Navbar() {
       <nav className="flex items-center flex-wrap bg-gray-800 p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6 ">
           <Link href="/">
-            <Image src="/images/logo.png" width={60} height={60}></Image>
+            <Image
+              src="/images/logo.png"
+              width={60}
+              height={60}
+              alt="logo"
+            ></Image>
           </Link>
         </div>
 
@@ -30,13 +35,13 @@ export default function Navbar() {
               href="/list"
               className="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4"
             >
-              List
+              Job List
             </Link>
             <Link
               href="/create"
               className="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4"
             >
-              Create
+              Job Create
             </Link>
           </div>
           <div className="flex gap-5 align-center">
