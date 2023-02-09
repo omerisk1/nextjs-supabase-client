@@ -9,7 +9,7 @@ export default function Login() {
   const router = useRouter();
 
   if (user) {
-    router.push("/List");
+    router.push("/list");
   }
 
   return (
