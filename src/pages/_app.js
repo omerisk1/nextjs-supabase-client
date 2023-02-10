@@ -7,6 +7,9 @@ import { store } from "../store/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import "react-toastify/dist/ReactToastify.css";
+import { ThemeProvider } from "next-themes";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function App({ Component, pageProps }) {
   const [supabase] = useState(() => createBrowserSupabaseClient());
@@ -19,8 +22,11 @@ export default function App({ Component, pageProps }) {
             supabaseClient={supabase}
             initialSession={pageProps.initialSession}
           >
-            <Navbar />
-            <Component {...pageProps} />
+            <ThemeProvider>
+              <Navbar />
+              <Component {...pageProps} />
+              <ToastContainer />
+            </ThemeProvider>
           </SessionContextProvider>
         </PersistGate>
       </Provider>

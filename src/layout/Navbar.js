@@ -3,11 +3,14 @@ import React from "react";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+import { toast } from "react-toastify";
 
 export default function Navbar() {
   const supabaseClient = useSupabaseClient();
   const user = useUser();
   const router = useRouter();
+  const { theme, setTheme } = useTheme();
 
   const handleSignOut = async () => {
     const { error } = await supabaseClient.auth.signOut();
@@ -54,6 +57,24 @@ export default function Navbar() {
               {user && user ? "Sign Out" : "Sign In"}
             </a>
           </div>
+          {/* <div className="flex gap-5 align-center ml-5">
+            <a
+              href="#"
+              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0"
+              onClick={() => setTheme("dark")}
+            >
+              Theme Dark
+            </a>
+          </div>
+          <div className="flex gap-5 align-center ml-5">
+            <a
+              href="#"
+              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0"
+              onClick={() => setTheme("light")}
+            >
+              Theme Ligth
+            </a>
+          </div> */}
         </div>
       </nav>
     </>
